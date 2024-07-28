@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "1122f0af-a506-43f8-ae8e-d78800adf7a0",
+		"name": "RangeManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28291878"
+	},
+	"item": [
+		{
+			"name": "Get min interval for digits",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/intervals/min?kind=digits",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"intervals",
+						"min"
+					],
+					"query": [
+						{
+							"key": "kind",
+							"value": "digits"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merge intervals for digits",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    [1, 4],\r\n    [3, 6],\r\n    [8, 10]\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/intervals/merge?kind=digits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"intervals",
+						"merge"
+					],
+					"query": [
+						{
+							"key": "kind",
+							"value": "digits"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get min interval for letters",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/intervals/min?kind=letters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"intervals",
+						"min"
+					],
+					"query": [
+						{
+							"key": "kind",
+							"value": "letters"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merge intervals for letters",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    [\"a\", \"f\"],\r\n    [\"d\", \"j\"],\r\n    [\"r\", \"z\"]\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/intervals/merge?kind=letters",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"intervals",
+						"merge"
+					],
+					"query": [
+						{
+							"key": "kind",
+							"value": "letters"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
