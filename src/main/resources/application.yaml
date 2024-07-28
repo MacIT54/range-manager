@@ -23,23 +23,17 @@ spring:
         locations:
           - db.migration
         encoding: UTF-8
-        baselineOnMigrate: true
+springdoc:
+    use-management-port: true
+
 management:
     endpoints:
         web:
             exposure:
-                include: "*"
-        jnx:
-            exposure:
-                include: "*"
-    prometheus:
-        metrics:
-            export:
-                enabled: true
+                include: health, openapi, swagger-ui
+    server:
+        port: 9090
 
 logging:
     level:
         org.springframework.web: "info"
-
-
-
