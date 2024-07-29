@@ -58,6 +58,7 @@
 
 ### После запуска приложение доступно по адресу: http://localhost:8080/api/v1/intervals/
 ### Консоль для базы данных H2 доступна по адресу: http://localhost:8080/h2-console/
+* Driver Class: org.h2.Driver 
 * JDBC URL: jdbc:h2:mem:rangemanager
 * Login: sa
 * Password: password
