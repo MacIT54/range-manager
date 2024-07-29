@@ -62,7 +62,7 @@ public class IntervalController {
             @ApiResponse(responseCode = "500", description = "api.server.error", content = {@Content(mediaType = APPLICATION_JSON_VALUE, schema = @Schema(implementation = ErrorControllerAdvice.ErrorResponse.class))})
     })
     @GetMapping("min")
-    public IntervalDto<?> getMinInterval(
+    public ResponseEntity<IntervalDto<?>> getMinInterval(
             @Parameter(
                     name = "kind",
                     description = "Letters or digits",
@@ -72,6 +72,6 @@ public class IntervalController {
         log.info("Received getMinInterval request with kind: {}", kind);
         IntervalDto<?> minInterval = intervalService.getMinInterval(kind);
         log.info("Processed getMinInterval request successfully, min interval: {}", minInterval);
-        return ResponseEntity.ok(minInterval).getBody();
+        return ResponseEntity.ok(minInterval);
     }
 }

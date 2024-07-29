@@ -46,7 +46,7 @@ public class ErrorControllerAdvice {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception exception) {
         log.error(exception.getMessage());
-        return handleCodeAbleException(HttpStatus.INTERNAL_SERVER_ERROR, new CodeAbleException(1, message("api.server.error")));
+        return handleCodeAbleException(HttpStatus.INTERNAL_SERVER_ERROR, new MessageException(1, message("api.server.error")));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -65,10 +65,10 @@ public class ErrorControllerAdvice {
     protected ResponseEntity<ErrorResponse> handleCustomException(Exception exception, HttpStatus status) {
         return ResponseEntity.status(status).body(body(exception.getMessage(), status.value()));
     }
-    protected ResponseEntity<ErrorResponse> handleCodeAbleException(HttpStatus status, CodeAbleException exception) {
+    protected ResponseEntity<ErrorResponse> handleCodeAbleException(HttpStatus status, MessageException exception) {
         return ResponseEntity.status(status).body(body(exception));
     }
-    protected ErrorResponse body(CodeAbleException exception) {
+    protected ErrorResponse body(MessageException exception) {
         return body(message(exception.getMessage()), exception.getCode());
     }
     protected ResponseEntity<ErrorResponse> handleBindValidationException(MethodArgumentNotValidException exception) {
