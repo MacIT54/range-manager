@@ -18,6 +18,9 @@ import ru.cft.shift.lab.ledin.core.utils.validation.IntervalValidate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service for managing letter and digit intervals.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -28,7 +31,14 @@ public class IntervalServiceImpl implements IntervalService {
     private final IntervalValidate intervalValidate;
 
 
-
+    /**
+     * Retrieves the minimum interval for the specified kind.
+     *
+     * @param kind the kind of interval ("digits" for digit intervals, "letters" for letter intervals)
+     * @return the minimum interval as {@link IntervalDto}
+     * @throws IntervalNotFoundException if no intervals are found for the specified kind
+     * @throws InvalidKindException if an invalid kind is provided
+     */
     @Override
     public IntervalDto<?> getMinInterval(String kind) {
         if (kind.equals("digits")) {
@@ -55,6 +65,13 @@ public class IntervalServiceImpl implements IntervalService {
         }
     }
 
+    /**
+     * Merges the provided intervals for the specified kind.
+     *
+     * @param kind the kind of interval ("digits" for digit intervals, "letters" for letter intervals)
+     * @param intervalDto the list of intervals to merge
+     * @throws InvalidKindException if an invalid kind is provided
+     */
     @Override
     public void mergeIntervals(String kind, List<IntervalDto<?>> intervalDto) {
         intervalValidate.validateIntervalLength(intervalDto);
