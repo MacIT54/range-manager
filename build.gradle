@@ -64,6 +64,6 @@ tasks.named('test') {
 
 jar {
 	manifest {
-		attributes 'Main-Class': 'ru.cft.shift.lab.ledin.RangeManagerApplication'
+		attributes 'Main-Class': 'ru.cft.shift.lab.ledin.rangemanager.RangeManagerApplication'
 	}
 }
