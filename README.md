@@ -20,6 +20,7 @@
 * Spring Data JPA
 * Spring Web
 * Swagger API
+* Actuator
 * H2 Database
 * Flyway
 * JUnit 5 и Mockito
@@ -27,17 +28,41 @@
 * Hibernate
 
 ## Сборка, запуск и работа с приложением:
-* Склонируйте репозиторий: git clone https://github.com/MacIT54/range-manager.git
-* Для сборки проекта перейдите в корневую папку проекта и выполните команду: "./gradlew build"
-* Для сборки и запуска: "./gradlew bootRun"
+* Склонируйте репозиторий: 
+  ```
+  git clone https://github.com/MacIT54/range-manager.git
+  ``` 
+* Для сборки проекта перейдите в корневую папку и выполните команду: 
+  ```
+  ./gradlew build
+  ```
+* Для сборки и запуска: 
+  ```
+  ./gradlew bootRun
+  ```
 * Запускайте проект средствами IDE (точка входа в приложение находится в классе RangeManagerApplication), <br>
-  либо командой: "java -jar build/libs/range-manager-0.0.1.jar" (предварительно соберите проект командой ./gradlew build)
+  либо командой: 
+  ```
+  java -jar build/libs/range-manager-0.0.1.jar
+  ```
+  (предварительно соберите проект командой "./gradlew build")
+* Для конфигурирования используется файл application.yaml
 
-#### После запуска приложение доступно по адресу: http://localhost:8080/api/v1/intervals/
-#### Консоль для базы данных H2 доступна по адресу: http://localhost:8080/h2-console/
-#### Документация Swagger API доступна по адресу: http://localhost:9090/actuator/swagger-ui/index.html#/
+## Endpoints:
+#### POST http://localhost:8080/api/v1/intervals/merge?kind=digits - добавление числовых интервалов
+#### POST http://localhost:8080/api/v1/intervals/merge?kind=letters - добавление буквенных интервалов
+#### GET http://localhost:8080/api/v1/intervals/min?kind=digits - запрос минимального числового интервала
+#### GET http://localhost:8080/api/v1/intervals/min?kind=letters - запрос минимального буквенного интервала
 
-#### Postman-коллекция находится в корневой папке
+<br/>
+
+### После запуска приложение доступно по адресу: http://localhost:8080/api/v1/intervals/
+### Консоль для базы данных H2 доступна по адресу: http://localhost:8080/h2-console/
+* JDBC URL: jdbc:h2:mem:rangemanager
+* Login: sa
+* Password: password
+### Документация Swagger API доступна по адресу: http://localhost:9090/actuator/swagger-ui/index.html#/
+### Postman-коллекция находится в корневой папке
 
 
 
