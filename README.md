@@ -55,7 +55,7 @@
   ```
 * Для конфигурирования используется файл application.yaml
 
-## Endpoints:
+### Endpoints:
 #### POST http://localhost:8080/api/v1/intervals/merge?kind=digits - добавление числовых интервалов
 #### POST http://localhost:8080/api/v1/intervals/merge?kind=letters - добавление буквенных интервалов
 #### GET http://localhost:8080/api/v1/intervals/min?kind=digits - запрос минимального числового интервала
@@ -63,11 +63,11 @@
 
 <br/>
 
-### После запуска приложение доступно по адресу: http://localhost:8080/api/v1/intervals/
-### Консоль для базы данных H2 доступна по адресу: http://localhost:8080/h2-console/
+#### После запуска приложение доступно по адресу: http://localhost:8080/api/v1/intervals/
+#### Консоль для базы данных H2 доступна по адресу: http://localhost:8080/h2-console/
 * Driver Class: org.h2.Driver 
 * JDBC URL: jdbc:h2:mem:rangemanager
 * Login: sa
 * Password: password
-### Документация Swagger API доступна по адресу: http://localhost:9090/actuator/swagger-ui/index.html#/
-### Postman-коллекция находится в корневой папке
+#### Документация Swagger API доступна по адресу: http://localhost:9090/actuator/swagger-ui/index.html#/
+#### Postman-коллекция находится в корневой папке
