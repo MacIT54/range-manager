@@ -43,16 +43,15 @@
   ```
   ./gradlew build
   ```
-* Для сборки и запуска: 
+* Для сборки и запуска проекта выполните команду: 
   ```
   ./gradlew bootRun
   ```
-* Запускайте проект средствами IDE (точка входа в приложение находится в классе RangeManagerApplication), <br>
-  либо командой: 
+* Запускайте проект средствами IDE (точка входа в приложение находится в классе RangeManagerApplication) либо командой: 
   ```
   java -jar build/libs/range-manager-0.0.1.jar
   ```
-* Для конфигурирования используется файл application.yaml
+* Для конфигурирования используйте файл application.yaml
 
 ### Endpoints:
 #### POST http://localhost:8080/api/v1/intervals/merge?kind=digits - добавление числовых интервалов
