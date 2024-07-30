@@ -98,7 +98,7 @@ public class IntervalValidateImpl implements IntervalValidate {
      * @throws IntervalValueException if the start value is not less than the end value
      */
     public <T extends Comparable<T>> void validateIntervalBorder(T start, T end) {
-        if (start.compareTo(end) >= 0) {
+        if (start.compareTo(end) > 0) {
             log.error("Invalid interval borders");
             throw new IntervalValueException();
         }
