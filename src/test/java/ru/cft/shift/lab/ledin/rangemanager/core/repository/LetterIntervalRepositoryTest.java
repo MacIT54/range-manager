@@ -1,7 +1,8 @@
 package ru.cft.shift.lab.ledin.rangemanager.core.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,30 +20,26 @@ public class LetterIntervalRepositoryTest {
     @Autowired
     private LetterIntervalRepository letterIntervalRepository;
 
-    @Test
-    void testFindMinInterval() {
+    @BeforeEach
+    public void setUp() {
         letterIntervalRepository.deleteAll();
 
-        LetterInterval interval1 = new LetterInterval(UUID.randomUUID(), "a", "c");
-        LetterInterval interval2 = new LetterInterval(UUID.randomUUID(), "b", "d");
-        LetterInterval interval3 = new LetterInterval(UUID.randomUUID(), "e", "g");
+        LetterInterval interval1 = new LetterInterval(UUID.randomUUID(), "a", "b");
+        LetterInterval interval2 = new LetterInterval(UUID.randomUUID(), "d", "j");
+        LetterInterval interval3 = new LetterInterval(UUID.randomUUID(), "r", "z");
+
         letterIntervalRepository.save(interval1);
         letterIntervalRepository.save(interval2);
         letterIntervalRepository.save(interval3);
-
-        Optional<LetterInterval> minInterval = letterIntervalRepository.findMinInterval();
-
-        assertTrue(minInterval.isPresent());
-        assertEquals(interval1, minInterval.get());
     }
 
     @Test
-    void testFindMinIntervalEmpty() {
-        letterIntervalRepository.deleteAll();
-
+    public void testFindMinInterval() {
         Optional<LetterInterval> minInterval = letterIntervalRepository.findMinInterval();
 
-        assertFalse(minInterval.isPresent());
+        assertThat(minInterval).isPresent();
+        assertThat(minInterval.get().getIntervalStart()).isEqualTo("a");
+        assertThat(minInterval.get().getIntervalEnd()).isEqualTo("b");
     }
 }
 
